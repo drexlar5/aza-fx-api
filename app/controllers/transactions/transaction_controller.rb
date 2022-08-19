@@ -23,9 +23,17 @@ class Transactions::TransactionController < ApplicationController
   def create
     :validate_transaction_params
 
-    render(
-      json: TransactionService.new(current_user).create_transaction(transaction_params)
-    )
+    transaction = TransactionService.new(current_user).create_transaction(transaction_params)
+
+    if transaction
+      render(
+        json: transaction
+      )
+    else
+      render(
+        json: { error: "transaction was not created" }, status: :not_found
+      )
+    end
   end
 
   private

@@ -20,6 +20,6 @@ class RegisterUser
       user = User.find_by_email(email)
       return errors.add :user_registration, 'user already exists' if user
   
-      new_user = User.create(user_id: SecureRandom.uuid, email: email, password: password)
+      User.create(user_id: SecureRandom.uuid, email: email, password: password)
     end
 end

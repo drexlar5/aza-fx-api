@@ -12,7 +12,6 @@ module Validate
         @input_currency = params[:input_currency]
         @input_amount = params[:input_amount]
         @output_currency = params[:output_currency]
-        params.require(:transaction).permit(:input_currency, :input_amount, :output_currency)
       end
   
     end

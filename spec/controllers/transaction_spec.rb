@@ -33,7 +33,7 @@ RSpec.describe Transactions::TransactionController, type: :controller do
 
             confirm_and_login_user(user)
 
-            create_traresponse = create_transaction
+            response = create_transaction
             response_body = JSON.parse(response.body)
 
             should permit(:input_amount, :input_currency, :output_currency).
